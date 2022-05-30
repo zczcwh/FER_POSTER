@@ -1,3 +1,4 @@
+2 RTX 3090, batch_size for each GPU is 100
 (emotion) cezheng@lambda-dual:/data/emotion$ python train.py --gpu 0,1 --batch_size 200
 Work on GPU:  0,1
 load_weight 304

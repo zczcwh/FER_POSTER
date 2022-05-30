@@ -22,7 +22,7 @@ Dowonload pretrain weights (Image backbone and Landmark backbone) from [here](ht
 
 ### Testing
 
-Our best model can be download from [here](https://drive.google.com/drive/folders/1jeCPTGjBL8YgKKB9YrI9TYZywme8gymv?usp=sharing). . You can evaluate our model on RAD-DB dataset by running: 
+Our best model can be download from [here](https://drive.google.com/drive/folders/1jeCPTGjBL8YgKKB9YrI9TYZywme8gymv?usp=sharing), put under `checkpoint ` folder. You can evaluate our model on RAD-DB dataset by running: 
 
 ```
 python test.py --checkpoint checkpoint/rafdb_best.pth -p

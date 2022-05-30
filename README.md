@@ -17,8 +17,15 @@
 		     ...
 	```
 
-### Pretrained model weights
+- Pretrained model weights
 Dowonload pretrain weights (Image backbone and Landmark backbone) from [here](https://drive.google.com/drive/folders/1X9pE-NmyRwvBGpVzJOEvLqRPRfk_Siwq?usp=sharing). Put entire `pretrain` folder under `models` folder.
+
+	```
+	- models/pretrain/
+		 ir50.pth
+		 mobilefacenet_model_best.pth.tar
+		     ...
+	```
 
 ### Testing
 

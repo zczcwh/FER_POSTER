@@ -8,7 +8,7 @@
   Download [RAF-DB](http://www.whdeng.cn/RAF/model1.html#dataset) dataset, and make sure it have a structure like following:
  
 	```
-	- datasets/raf-basic/
+	- data/raf-basic/
 		 EmoLabel/
 		     list_patition_label.txt
 		 Image/aligned/

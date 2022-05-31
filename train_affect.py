@@ -16,7 +16,7 @@ from data_preprocessing.dataset_affectnet_8class import Affectdataset_8class
 from sklearn.metrics import f1_score, confusion_matrix
 from time import time
 from utils import *
-from sam import SAM
+from data_preprocessing.sam import SAM
 from torchsampler import ImbalancedDatasetSampler
 
 from models.emotion_hyp_affect import pyramid_trans_expr

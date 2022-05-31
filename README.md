@@ -38,7 +38,7 @@ python test.py --checkpoint checkpoint/rafdb_best.pth -p
 ### Training
 Train on RAF-DB dataset:
 ```
-python train.py --gpu 0,1,2,3 --batch_size 560
+python train.py --gpu 0,1,2,3 --batch_size 400
 ```
 You may adjust batch_size based on your # of GPUs. Usually bigger batch size can get higher performance. We provide the log in  `log` folder. You may run several times to get the best results. 
 

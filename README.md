@@ -1,4 +1,4 @@
-# FER_POSTER (temporary repo for test, will move to offical POSTER repo)
+# FER_POSTER (temporary repo for testing, will be moved to the offical POSTER repo)
 
 ### Preparation
 - create conda environment (we provide requirements.txt)

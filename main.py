@@ -12,6 +12,7 @@ from models.resnet_feddepth import resnet56 as resnet56_feddepth
 from models.resnet_feddepth import resnet18 as resnet18_feddepth
 from models.resnet_ours import resnet56 as resnet56_ours
 from models.resnet_ours import resnet18 as resnet18_ours
+from models.emotion_hyp import pyramid_trans_expr
 from torch.multiprocessing import Pool, Process, set_start_method, Queue
 import logging
 import os
@@ -26,6 +27,7 @@ import methods.moon as moon
 import methods.feddepth as feddepth
 import methods.mixup as mixup
 import methods.ours as ours
+import methods.poster as poster
 import data_preprocessing.custom_multiprocess as cm
 
 def add_args(parser):
@@ -94,6 +96,11 @@ def add_args(parser):
                     help='stochastic depth probability')
     parser.add_argument('--beta', default=0.0, type=float,
                     help='hyperparameter beta for mixup')
+
+    # Poster setting
+    parser.add_argument('--poster_type', type=str, default='large', help='small or base or large')
+    parser.add_argument('--poster_optimizer', type=str, default="adam", help='Optimizer, adam or sgd.')
+
     args = parser.parse_args()
 
     return args
@@ -217,6 +224,14 @@ if __name__ == "__main__":
         client_dict = [{'train_data':train_data_local_dict, 'test_data': test_data_local_dict, 'device': i % torch.cuda.device_count(),
                             'client_map':mapping_dict[i], 'model_type': Model, 'num_classes': class_num, 
                             'width_range': width_range, 'resolutions': resolutions} for i in range(args.thread_number)]
+    elif args.method=='poster':
+        Server = poster.Server
+        Client = poster.Client
+        Model = pyramid_trans_expr
+        server_dict = {'train_data':train_data_global, 'test_data': test_data_global, 'model_type': Model, 'num_classes': class_num}
+        client_dict = [{'train_data':train_data_local_dict, 'test_data': test_data_local_dict, 'device': i % torch.cuda.device_count(),
+                            'client_map':mapping_dict[i], 'model_type': Model, 'num_classes': class_num} for i in range(args.thread_number)]
+  
 
     else:
         raise ValueError('Invalid --method chosen! Please choose from availible methods.')

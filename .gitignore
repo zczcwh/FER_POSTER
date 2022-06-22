@@ -1,0 +1,21 @@
+# Cache
+*.pyc
+__pycache__
+
+# logs
+log/*
+*.pth
+logs
+Confusion_matrix/*
+*.log
+*.pt
+
+# data
+data/*
+*.tar
+*.xz
+*.zip
+*.rar
+
+
+
